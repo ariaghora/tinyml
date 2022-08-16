@@ -25,10 +25,10 @@ func main() {
 	X := IrisDataset.Range(0, 0, IrisDataset.NRows, 4)
 	Y := IrisDataset.GetCol(4)
 	XTrain, XTest, YTrain, YTest := preprocessing.TrainTestSplit(X, Y, 0.2, true)
-    
-    k := 3
+
+	k := 3
 	classifier := classifier.NewKNNClassifier(k)
-    classifier.Fit(XTrain, YTrain)
+	classifier.Fit(XTrain, YTrain)
 	YPred := classifier.Predict(XTest)
 
 	fmt.Println("Predictions:\n", YPred.T())
@@ -43,6 +43,7 @@ func main() {
 	accuracy := nCorrectlyClassified / float64(YPred.NRows)
 	fmt.Println("Accuracy:", accuracy)
 }
+
 
 ```
 

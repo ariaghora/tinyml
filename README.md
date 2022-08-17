@@ -52,7 +52,7 @@ func main() {
 - CSV reading (numerical data only, float64)
 - Classifiers: 
     - [x] KNN
-    - [ ] Logistic regression
+    - [x] Logistic regression
     - [ ] MLP
 - Data preprocessing:
     - [x] Train-test split

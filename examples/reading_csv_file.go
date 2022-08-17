@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	data, err := tio.ReadCSV("../assets/data.csv")
+	data, err := tio.ReadCSV("../assets/datasets/dummy.csv")
 	if err != nil {
 		log.Fatal(err)
 	}

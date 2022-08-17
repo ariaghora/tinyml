@@ -37,19 +37,19 @@ func TrainTestSplit(X, Y *matrix.Matrix, testSize float64, shuffle bool) (XTrain
 			YTestData = append(YTestData, Y.Data[indices[i]])
 		}
 	}
-	XTrain = new(matrix.Matrix)
+	XTrain = &matrix.Matrix{}
 	XTrain.Data = XTrainData
 	XTrain.NRows = nTrain
 	XTrain.NCols = X.NCols
-	YTrain = new(matrix.Matrix)
+	YTrain = &matrix.Matrix{}
 	YTrain.Data = YTrainData
 	YTrain.NRows = nTrain
 	YTrain.NCols = Y.NCols
-	XTest = new(matrix.Matrix)
+	XTest = &matrix.Matrix{}
 	XTest.Data = XTestData
 	XTest.NRows = nTest
 	XTest.NCols = X.NCols
-	YTest = new(matrix.Matrix)
+	YTest = &matrix.Matrix{}
 	YTest.Data = YTestData
 	YTest.NRows = nTest
 	YTest.NCols = Y.NCols

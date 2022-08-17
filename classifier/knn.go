@@ -67,7 +67,7 @@ func (cls *KNNClassifier) Predict(X *matrix.Matrix) *matrix.Matrix {
 
 		YPredData = append(YPredData, modeVal)
 	}
-	YPred := new(matrix.Matrix)
+	YPred := &matrix.Matrix{}
 	YPred.Data = YPredData
 	YPred.NRows = X.NRows
 	YPred.NCols = 1

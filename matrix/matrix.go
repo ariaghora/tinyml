@@ -16,7 +16,7 @@ func (m *Matrix) Range(Row, Col, NRows, NCols int) *Matrix {
 	for i := Row; i < Row+NRows; i++ {
 		NewData = append(NewData, m.Data[i][Col:Col+NCols])
 	}
-	NewMatrix := new(Matrix)
+	NewMatrix := &Matrix{}
 	NewMatrix.Data = NewData
 	NewMatrix.NRows = NRows
 	NewMatrix.NCols = NCols
@@ -40,7 +40,7 @@ func (m *Matrix) T() *Matrix {
 		}
 		newData = append(newData, newRow)
 	}
-	newMatrix := new(Matrix)
+	newMatrix := &Matrix{}
 	newMatrix.Data = newData
 	newMatrix.NRows = m.NCols
 	newMatrix.NCols = m.NRows
@@ -77,7 +77,7 @@ func (m *Matrix) InsertColumnAt(colIndex int, data []float64) *Matrix {
 		}
 		newData = append(newData, newRow)
 	}
-	newMatrix := new(Matrix)
+	newMatrix := &Matrix{}
 	newMatrix.Data = newData
 	newMatrix.NRows = m.NRows
 	newMatrix.NCols = m.NCols + 1
@@ -96,7 +96,7 @@ func (m *Matrix) InsertRowAt(rowIndex int, data []float64) *Matrix {
 			newData = append(newData, m.Data[i])
 		}
 	}
-	newMatrix := new(Matrix)
+	newMatrix := &Matrix{}
 	newMatrix.Data = newData
 	newMatrix.NRows = m.NRows + 1
 	newMatrix.NCols = m.NCols
@@ -141,7 +141,7 @@ func (m *Matrix) Mul(other *Matrix) *Matrix {
 
 /* Initialization functions */
 func NewMatrix(NRows, NCols int) *Matrix {
-	m := new(Matrix)
+	m := &Matrix{}
 	m.NRows = NRows
 	m.NCols = NCols
 	m.Data = make([][]float64, NRows)
@@ -152,7 +152,7 @@ func NewMatrix(NRows, NCols int) *Matrix {
 }
 
 func NewMatrixFromArray(data [][]float64) *Matrix {
-	m := new(Matrix)
+	m := &Matrix{}
 	m.NRows = len(data)
 	m.NCols = len(data[0])
 	m.Data = data
@@ -160,7 +160,7 @@ func NewMatrixFromArray(data [][]float64) *Matrix {
 }
 
 func NewMatrixFromFlatArray(data []float64) *Matrix {
-	m := new(Matrix)
+	m := &Matrix{}
 	m.NRows = len(data)
 	m.NCols = 1
 	m.Data = [][]float64{}
@@ -209,7 +209,7 @@ func MatMul(A, B *Matrix) *Matrix {
 		}
 		newData = append(newData, newRow)
 	}
-	newMatrix := new(Matrix)
+	newMatrix := &Matrix{}
 	newMatrix.Data = newData
 	newMatrix.NRows = A.NRows
 	newMatrix.NCols = B.NCols
@@ -228,7 +228,7 @@ func MatBFunc(A, B *Matrix, f func(float64, float64) float64) *Matrix {
 		}
 		newData = append(newData, newRow)
 	}
-	newMatrix := new(Matrix)
+	newMatrix := &Matrix{}
 	newMatrix.Data = newData
 	newMatrix.NRows = A.NRows
 	newMatrix.NCols = B.NCols
@@ -245,7 +245,7 @@ func MatUFunc(A *Matrix, f func(float64) float64) *Matrix {
 		}
 		newData = append(newData, newRow)
 	}
-	newMatrix := new(Matrix)
+	newMatrix := &Matrix{}
 	newMatrix.Data = newData
 	newMatrix.NRows = A.NRows
 	newMatrix.NCols = A.NCols
@@ -285,7 +285,7 @@ func MatScale(A *Matrix, scalar float64) *Matrix {
 		}
 		newData = append(newData, newRow)
 	}
-	newMatrix := new(Matrix)
+	newMatrix := &Matrix{}
 	newMatrix.Data = newData
 	newMatrix.NRows = A.NRows
 	newMatrix.NCols = A.NCols
